@@ -1,0 +1,80 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="img/download.png" type="image/x-icon">
+  <title>pharmacy</title>
+</head>
+
+<body>
+  <div class="container mt-5 bg-transparent shadow-lg py-3 w-auto px-5 rounded-5" id="model">
+    <h2 class="text-center w-100 fw-bold text-dark mt-1 mb-3">Pharmacy System</h2>
+    <input type="text" id="prodName" class="form-control my-3 " placeholder="Enter Medicine name">
+    <div class="d-none" id="validateName">
+      <span></span>
+      Please insert a name.
+    </div>
+    <input type="date" id="prodCategory" class="form-control my-3 " placeholder="Enter Production Date">
+    <div class="d-none" id="validateDate">
+      <span></span>
+      Please insert a Date.
+    </div>
+    <input type="number" id="prodprice" class="form-control my-3" placeholder="Enter Medicine price">
+    <div class="d-none" id="validatePrice">
+      <span></span>
+      Please insert a Price.
+    </div>
+    <textarea id="prductDesc" cols="30" rows="5" placeholder="Enter Medicine Description"
+      class="form-control my-3"></textarea>
+    <button onclick="addToCard()" class="btn btn-primary my-2" style="display: inline;" id="add">Add product</button>
+    <button onclick="CardUpdate()" class="btn btn-warning my-2" style="display: none;" id="update">Update</button>
+    <button onclick="CardCancel()" class="btn btn-success my-2" style="display: none;" id="cancel">cancel</button>
+    <button id="clearAll" onclick="clearAll()" class="btn btn-danger" data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop" style="display: none;">
+      clear All
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Are you sure ??</h5>
+          </div>
+          <div class="modal-body">
+            Are you sure to Delate all product
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button onclick="delateProducts()" class="btn btn-danger" data-bs-dismiss="modal">Delate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <input type="text" id="serch" onkeyup="search(this.value)" class="form-control my-3"
+      placeholder="search with name .......">
+  </div>
+  <table class="table shadow-lg text-center table-dark rounded table-striped  mx-auto">
+    <thead>
+      <th>Number</th>
+      <th>Name</th>
+      <th>category</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Delete</th>
+      <th>Update</th>
+    </thead>
+    <tbody id="tbodyID">
+    </tbody>
+  </table>
+  <script src="js/bootstrap.bundle.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
